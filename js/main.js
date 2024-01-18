@@ -1,3 +1,4 @@
+
 /* Задание на урок:
 
 1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
@@ -89,3 +90,46 @@ const personalMovieDB = {
 		});
 	}
 };
+
+}
+
+rememberMyFilms();
+
+function detectPersonalLevel() {
+	if (personalMovieDB.count < 10) {
+		console.log('Просмотрено довольно мало фильмов');
+	} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+		console.log('Вы классический зритель');
+	} else if (personalMovieDB.count >= 30) {
+		console.log('Вы киноман');
+	} else {
+		console.log('Произошла ошибка');
+	}
+}
+
+detectPersonalLevel();
+
+//(personalMovieDB.privat != true) можно заменить если задать аргумент функции например 'hidden'
+// ! - отрицание
+function showMyDB(hidden) {
+	if (!hidden) {
+		// Если база данных не скрыта то есть стоит False то мы показываем главный объект программы
+		console.log(personalMovieDB);
+	}
+}
+
+showMyDB(personalMovieDB.privat);
+
+function writeYourGenres() {
+	for (let i = 1; i <= 3; i++) {
+		// для того чтобы поставить номер по порядку нужно испольовать кавычки "бектики" на тильде
+		// для того чтобы программа работала быстрее можно пропустить переменную "const genre = prompt(`Ваш любимый жанр под номером ${i}`);" и ставить вопрос напрямую 
+		// так как цикл мы начинаем с 1 чтобы было удобно пользователю, то для цикла нужно начинать с 0 поэтому идёт выражение i - 1 
+		personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+	}
+}
+
+writeYourGenres();
+
+
+
